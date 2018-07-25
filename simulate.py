@@ -159,3 +159,15 @@ times = np.arange(0, 2000, 1)
 calcium_transient = np.convolve(a, traces[1])
 plt.plot(times, calcium_transient)
 
+#With the calcium transient, the next step is to create a video simulation of calcium imaging. 
+#We want to create an empty frame, weight certain pixels in either a circle or square with a normal distribution around the shape's 
+#center, then apply our randomly generated calcium transient to each "neuron".
+
+diameter = np.arange(-100, 100, 1) #diameter of neuron
+distribution = []
+for i in diameter:
+    distribution.append(norm.pdf(i, 0, 30))
+    
+print(np.size(distribution))
+plt.plot(diameter, distribution)
+
